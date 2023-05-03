@@ -1,5 +1,5 @@
-# Como usar um comando?
+# How to use a command?
 
-Para usar um comando, o caminho mais facil é usar o argumento '--help'. <br /> 
-Uma lista de comando ira aparecer no console. Esses comandos sao as funções criadas
-que estão decoradas com "@app.command()"
+To use a command, the easiest way is to use the '--help' argument. <br />
+A list of commands will appear on the console. These commands are the functions created
+which are decorated with "@app.command()"
