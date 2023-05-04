@@ -1,47 +1,26 @@
-import click
+import typer
+from typing_extensions import Annotated
+
+from controllers.proposals.create_proposal import create_proposal
+from controllers.simulations.create_simulation_controller import create_simulation_id
+
+app = typer.Typer()
 
 
-@click.group()
-def cli():
-    """A simple calculator app."""
+@app.command()
+def should_create_proposal(
+        car: Annotated[str, typer.Option('--car', '-c')],
+        approve: bool = False
+):
+    simulation_id = create_simulation_id()
+    proposal = create_proposal(simulation_id)
+    proposal_id = proposal
+    print(f'Proposal created: {proposal_id}')
+
+    if approve:
+        'approve proposal analysis'
 
 
-@click.command()
-@click.argument('x', type=float)
-@click.argument('y', type=float)
-def add(x, y):
-    """Add two numbers."""
-    click.echo(x + y)
-
-
-@click.command()
-@click.argument('x', type=float)
-@click.argument('y', type=float)
-def subtract(x, y):
-    """Subtract two numbers."""
-    click.echo(x - y)
-
-
-@click.command()
-@click.argument('x', type=float)
-@click.argument('y', type=float)
-def multiply(x, y):
-    """Multiply two numbers."""
-    click.echo(x * y)
-
-
-@click.command()
-@click.argument('x', type=float)
-@click.argument('y', type=float)
-def divide(x, y):
-    """Divide two numbers."""
-    click.echo(x / y)
-
-
-cli.add_command(add)
-cli.add_command(subtract)
-cli.add_command(multiply)
-cli.add_command(divide)
-
-if __name__ == '__main__':
-    cli()
+if __name__ == "__main__":
+    app()
+    raise SystemExit
