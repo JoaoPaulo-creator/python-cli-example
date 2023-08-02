@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_transports\default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_transports\default.py", line 218, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 214, in handle_request
+    raise UnsupportedProtocol(
+httpcore.UnsupportedProtocol: Request URL is missing an 'http://' or 'https://' protocol.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\joaog\www\python-cli-example\teste-falha.py", line 12, in run_teste
+    post("localhost:3000", json={
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_api.py", line 304, in post
+    return request(
+           ^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_api.py", line 100, in request
+    return client.request(
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_client.py", line 814, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_client.py", line 901, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_client.py", line 929, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_client.py", line 966, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_client.py", line 1002, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_transports\default.py", line 217, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\joaog\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\joaog\www\python-cli-example\venv\Lib\site-packages\httpx\_transports\default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.UnsupportedProtocol: Request URL is missing an 'http://' or 'https://' protocol.
