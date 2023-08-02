@@ -13,6 +13,10 @@ def should_create_proposal(
         approve: bool = False
 ):
     simulation_id = create_simulation_id()
+
+    if simulation_id is None:
+        raise Exception
+
     proposal = create_proposal(simulation_id)
     proposal_id = proposal
     print(f'Proposal created: {proposal_id}')
